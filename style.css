@@ -1,0 +1,291 @@
+:root {
+    --ink: #5d1916;
+}
+/* Urdu Font Application - Targeted specifically to your new HTML classes */
+.urdu-sher-inside, 
+.urdu-personal, 
+.urdu-title {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    direction: rtl; /* Punctuation aur words ki direction sahi karne ke liye */
+    line-height: 2.2; /* Nastaliq ke characters ke liye space dena zaroori hai */
+    color: var(--ink); /* Aapka red-ink color apply karne ke liye */
+}
+
+/* Inside Left Page (The Sher) adjustment */
+.urdu-sher-inside {
+    font-size: 1rem; /* 5 lines hain toh size thora balance rakha hai */
+    margin: 8px 0;
+    display: block;
+}
+
+/* Inside Right Page (Personal Message) adjustment */
+.urdu-personal {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Background Image Fix - Aapke VS Code ke mutabiq name adjust kiya hai */
+
+body {
+    background: url('bg-texture.jpg') no-repeat center bottom fixed;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.table-anchor {
+    perspective: 2000px;
+    transform: translateY(50px); 
+}
+/* 1. Subtle Hover Effect: Pata chale ke click ho sakta hai */
+.eid-card:not(.open):hover {
+    transform: scale(1.02); /* Sirf halka sa zoom, koi terha pan nahi */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Depth barh jaye gi */
+    cursor: pointer;
+}
+
+/* 2. Eidi Note: Simple aur Elegant (Inside Right Page) */
+.eidi-note {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 0.85rem;
+    color: #5d1916;
+    background: rgba(253, 253, 150, 0.4); /* Bohat halka yellow, transparent feel */
+    padding: 5px 12px;
+    border-left: 3px solid #5d1916;
+    margin: 20px 0;
+    display: inline-block;
+    /* No animation, just static and clean */
+}
+
+/* 3. Card Transition: Smooth khulna */
+.eid-card {
+    transition: transform 1s ease-in-out, box-shadow 0.5s ease;
+    width: 350px;
+    height: 480px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg);
+    transition: transform 0.6s ease;
+    cursor: pointer;
+    
+}
+
+.eid-card.open .cover {
+    transform: rotateY(-170deg);
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1.2s ease-in-out;
+    z-index: 10;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-size: 100% 100%; 
+    background-position: center;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* FRONT PAGE: Fixed Centering */
+.front-face {
+    background-image: url('front.jpg');
+}
+
+/* 1. Center the Eid Mubarak + Date Block */
+.front-content {
+    position: absolute;
+    top: 45%; 
+    left: 57%; /* 50% se barha kar 57% kiya taaki right side move ho */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+.urdu-title {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 3.8rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+
+.hijri-date {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 25px; /* Pehle 15px tha, ab niche karne ke liye 25px kiya */
+    display: block;
+    color: #000; /* Agar black chahiye toh #000, warna maroon ke liye #5d1916 */
+}
+
+.pak-stamp {
+    position: absolute;
+    bottom: 50px; /* Thora sa niche se upar kiya taaki corner space cover ho */
+    right: 30px; /* Right side par full alignment */
+    
+    /* Stamp Box Styling */
+    border: 3px solid #5d1916; /* Mota Border */
+    padding: 8px 18px; /* Box ko barha diya prominent karne ke liye */
+    display: inline-block;
+    
+    /* Text Styling */
+    font-weight: 900;
+    letter-spacing: 5px; /* Mazeed official space */
+    font-size: 0.9rem; /* Thora barha diya prominent karne ke liye */
+    color: #5d1916;
+    text-transform: uppercase;
+    
+    /* Text Inside Centered */
+    text-align: center;
+}
+/* INSIDE PAGES: No Background Boxes */
+.inside-left {
+    background-image: url('inside-left.jpg');
+    transform: rotateY(180deg);
+}
+
+.inside-right {
+    background-image: url('inside-right.jpg');
+    z-index: 1;
+}
+
+.direct-text {
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+}
+
+.urdu-sher, .urdu-personal {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    color: #222;
+    direction: rtl;
+}
+
+
+
+/* Right Page Message Box Fix */
+.message-box {
+    background: rgba(255, 255, 255, 0.8); 
+    margin: 10px 20px; /* Margins kam kar di taake space bachay */
+    padding: 15px; /* Padding kam ki taake text fit ho jaye */
+    border-radius: 5px;
+    border: 1px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto; /* Height auto ki taake text ke mutabiq adjust ho */
+    max-height: 90%; /* Taake signature neeche se bahar na nikle */
+}
+
+.urdu-personal {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    direction: rtl;
+    text-align: center;
+    line-height: 2.2; /* Line spacing kam ki taake font poore page par na phayle */
+    font-size: 1.05rem; /* Font size thoda chota kiya balance ke liye */
+    color: #5d1916;
+    margin-bottom: 5px;
+}
+
+.main-heading {
+    font-size: 2.2rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+.signature {
+    font-family: 'Noto Nastaliq Urdu', serif; 
+    font-size: 1.2rem; /* Size thoda kam kiya taake page ke andar fit ho */
+    color: #5d1916;
+    text-align: right; 
+    margin-top: 5px; /* Margin 30px se kam karke 5px kar di */
+    font-weight: bold;
+    display: block;
+    padding-right: 20px; /* Right side se thoda gap diya taake chipka hua na lage */
+}
+/* --- MOBILE RESPONSIVE SETTINGS --- */
+
+@media (max-width: 480px) {
+    /* 1. Card size adjustment for smaller screens */
+    .eid-card {
+        width: 300px; /* Width thori kam ki taake side se gap rahe */
+        height: 420px; /* Height bhi proportional rakhi */
+    }
+
+    /* 2. Front Content Scaling */
+    .urdu-title {
+        font-size: 2.8rem !important; /* Title ko chota kiya */
+    }
+
+    .front-content {
+        left: 50% !important; /* Mobile par centering standard rakhi */
+    }
+
+    .hijri-date {
+        font-size: 0.9rem !important;
+        margin-top: 15px !important;
+    }
+
+    /* 3. Stamp Adjustment */
+    .pak-stamp {
+        bottom: 30px !important;
+        right: 20px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 2px !important;
+        padding: 5px 10px !important;
+    }
+
+    /* 4. Inside Text Scaling */
+    .direct-text {
+        padding: 20px !important; /* Space kam ki taake text fit ho */
+    }
+
+    .urdu-sher-inside {
+        font-size: 0.85rem !important;
+        line-height: 2 !important;
+    }
+
+    .urdu-personal {
+        font-size: 0.9rem !important;
+        line-height: 1.8 !important;
+        padding: 0 5px !important;
+    }
+
+    .signature {
+        font-size: 1rem !important;
+        margin-top: 2px !important;
+    }
+
+    /* 5. Opening adjustment for mobile */
+    .eid-card.open {
+        /* Mobile par card screen se bahar na nikal jaye */
+        transform: rotateX(0deg) rotateY(-170deg) translateX(0) scale(0.9);
+    }
+    
+    .table-anchor {
+        transform: translateY(0); /* Center alignment for mobile */
+    }
+}
+
+/* Extra small screens fix */
+@media (max-height: 500px) {
+    .eid-card {
+        height: 350px;
+    }
+}
